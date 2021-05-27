@@ -6,10 +6,10 @@
 }
 
 #wrapper {
-    position: fixed;
+    margin: 20px;
+    border: 1px solid white;
     width: 950px;
     background-color: silver;
-    margin: 20px;
 }
 
 #header {

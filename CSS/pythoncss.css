@@ -16,8 +16,8 @@ span.ama {
     color: yellow;
     font-family: sans-serif;
     font-style: italic;
-    font-size: 17px;
-    padding: 10px;
+    font-size: 15px;
+    padding: 5px;
 }
 
 span.mensajito {
@@ -33,9 +33,9 @@ li.mprin {
     padding-left: 20px;
 }
 
-li.MenuChico {
+li.Menuchico {
     display: block;
-    list-style-type: armenian;
+    list-style-type: none;
 }
 
 li.azul {

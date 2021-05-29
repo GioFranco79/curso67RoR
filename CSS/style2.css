@@ -84,3 +84,7 @@ p {
 #especial {
     list-style-type: none;
 }
+
+::marker {
+    color: aliceblue;
+}

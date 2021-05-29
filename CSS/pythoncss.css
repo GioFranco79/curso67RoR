@@ -20,6 +20,11 @@ span.ama {
     padding: 10px;
 }
 
+span.mensajito {
+    color: turquoise;
+    font-size: 12px;
+}
+
 li.mprin {
     margin-left: 10px;
     font-size: 22px;
@@ -41,8 +46,10 @@ li.azul {
 
 li.final {
     marker: none;
+    color: aquamarine;
     display: inline-block;
     padding: 20px;
+    margin-top: 30px;
     margin-left: 105px;
 }
 
@@ -61,9 +68,14 @@ p.negras {
 }
 
 p.ult {
-    color: white;
+    color: aquamarine;
     font-size: 6;
     text-align: center;
+}
+
+p.cabeza {
+    color: white;
+    margin-left: 50px;
 }
 
 #contenedor {
@@ -126,11 +138,17 @@ img.logo {
 #textob {
     width: 175px;
     height: 28px;
+    text-align: center;
+    color: gray;
     border: 1px solid gray;
 }
 
 a {
     color: white;
+}
+
+a.amarillo {
+    color: yellow;
 }
 
 ::marker {
@@ -173,6 +191,6 @@ a {
     margin: 20px;
     border: 1px solid white;
     width: 970px;
-    height: 90px;
+    height: 120px;
     background-color: #245076;
 }

@@ -4,13 +4,20 @@
     /*outline: 1px solid red;*/
 }
 
-h1 {
+h3 {
     color: white;
-    padding: 20px;
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    padding: 10px;
 }
 
-span {
-    color: #384fbd;
+span.ama {
+    color: yellow;
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 17px;
+    padding: 10px;
 }
 
 li.mprin {
@@ -23,16 +30,40 @@ li.mprin {
 
 li.MenuChico {
     display: block;
+    list-style-type: armenian;
+}
+
+li.azul {
+    color: turquoise;
+    list-style-type: square;
+    marker-start: inherit;
+}
+
+li.final {
+    marker: none;
+    display: inline-block;
+    padding: 20px;
+    margin-left: 105px;
 }
 
 ul {
     color: white;
-    /*margin-left: 20px;*/
 }
 
-p {
+p.blancas {
     color: white;
-    padding-left: 10px;
+    font-size: 10;
+    text-align: center;
+}
+
+p.negras {
+    color: black;
+}
+
+p.ult {
+    color: white;
+    font-size: 6;
+    text-align: center;
 }
 
 #contenedor {
@@ -103,5 +134,45 @@ a {
 }
 
 ::marker {
-    color: aliceblue;
+    color: black;
+}
+
+#derecha {
+    vertical-align: top;
+    margin-right: 50px;
+    width: 500px;
+    display: inline-block;
+    text-align: center;
+}
+
+#izquierda {
+    vertical-align: top;
+    margin-left: 150px;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+}
+
+#izquierda2 {
+    vertical-align: top;
+    margin-left: 125px;
+    width: 325px;
+    display: inline-block;
+    text-align: center;
+}
+
+#derecha2 {
+    vertical-align: top;
+    margin-left: 125px;
+    width: 325px;
+    display: inline-block;
+    text-align: center;
+}
+
+#footer {
+    margin: 20px;
+    border: 1px solid white;
+    width: 970px;
+    height: 90px;
+    background-color: #245076;
 }

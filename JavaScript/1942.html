@@ -1,0 +1,235 @@
+<html>
+
+<head>
+    <title>1942 Game</title>
+
+    <style type="text/css">
+        body {
+            background-color: black;
+        }
+        
+        #container {
+            background: url('background.jpg');
+            width: 1000px;
+            height: 550px;
+        }
+        
+        .hero {
+            background: url('1942.gif');
+            background-position: -85px -180px;
+            width: 28px;
+            height: 28px;
+            position: absolute;
+        }
+        
+        .enemy1 {
+            background: url('1942.gif');
+            background-position: -30px -10px;
+            width: 28px;
+            height: 28px;
+            position: absolute;
+        }
+        
+        .boss {
+            background: url('boss.png');
+            width: 70px;
+            height: 70px;
+            position: absolute;
+        }
+        
+        .bullet {
+            background: url('1942.gif');
+            background-position: -185px -400px;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+        }
+        
+        #score {
+            position: absolute;
+            border: 10px solid red;
+            top: 20px;
+            left: 800px;
+            background-color: white;
+            padding: 10px;
+            font-size: 30px;
+            font-family: Arial;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='hero'>
+        </div>
+        <div id='jefe'>
+        </div>
+        <div id='enemies'>
+        </div>
+        <div id='bullets'>
+        </div>
+    </div>
+
+    <div id='score'></div>
+
+
+    <script type="text/javascript">
+        var player = {
+            left: 350,
+            top: 530
+        };
+        /************************ Enemigos ********************************/
+        var enemies = [{
+            left: 350,
+            top: 200,
+            boss: 0
+        }, {
+            left: 450,
+            top: 110,
+            boss: 0
+        }, {
+            left: 150,
+            top: 100,
+            boss: 0
+        }, {
+            left: 200,
+            top: 150,
+            boss: 1
+        }, {
+            left: 420,
+            top: 220,
+            boss: 0
+        }, {
+            left: 580,
+            top: 190,
+            boss: 0
+        }, {
+            left: 680,
+            top: 250,
+            boss: 0
+        }];
+
+        var misiles = [];
+        var score = 0;
+
+        function aleatorio(a, b) {
+            return Math.round(Math.random() * (b - a) + parseInt(a));
+        }
+
+        function cr(p1, p2, r) {
+            if ((p2 + r) >= p1 && (p2 - r) <= p1) {
+                return true;
+            }
+            return false;
+        }
+
+        function drawScore() {
+            content = "";
+            content = "<div>" + score + "</div>";
+            document.getElementById("score").innerHTML = content;
+        }
+
+        function drawEnemies() {
+            content = "";
+            for (var i = 0; i < enemies.length; ++i) {
+                if (!enemies[i].boss) {
+                    content += "<div class='enemy1' style='left: " + enemies[i].left + "px; top: " + enemies[i].top + "px'></div>";
+                } else {
+                    content += "<div class='boss' style='left: " + enemies[i].left + "px; top: " + enemies[i].top + "px'></div>";
+                }
+            }
+            document.getElementById("enemies").innerHTML = content;
+        }
+
+        function drawPlayer() {
+            content = "";
+            content = "<div class='hero' style='left: " + player.left + "px; top: " + player.top + "px'></div>";
+            document.getElementById("hero").innerHTML = content;
+        }
+        drawPlayer();
+
+        function drawMisiles() {
+            content = "";
+            for (var i = 0; i < misiles.length; ++i) {
+                content += "<div class='bullet' style='left: " + misiles[i].left + "px; top: " + misiles[i].top + "px'></div>";
+            }
+            document.getElementById("bullets").innerHTML = content;
+        }
+
+        function moveEnemies() {
+            for (var i = 0; i < enemies.length; i++) {
+                enemies[i].top = enemies[i].top + aleatorio(7, 12);
+                if (enemies[i].top > 550) {
+                    enemies[i].top = 30;
+                    enemies[i].left = aleatorio(70, 970);
+                }
+            }
+        }
+
+        function moveMisiles() {
+            for (var i = 0; i < misiles.length; i++) {
+                misiles[i].top = misiles[i].top - 13;
+            }
+        }
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 37 && player.left > 10) {
+                player.left = player.left - 10;
+            }
+            if (e.keyCode == 39 && player.left < 970) {
+                player.left = player.left + 10;
+            }
+            if (e.keyCode == 38 && player.top > 230) {
+                player.top = player.top - 10;
+            }
+            if (e.keyCode == 40 && player.top < 530) {
+                player.top = player.top + 10;
+            }
+            if (e.keyCode == 32 && player.top < 530) {
+                misiles.push({
+                    left: (player.left + 8),
+                    top: (player.top - 8)
+                });
+                drawMisiles();
+            }
+            drawPlayer();
+        }
+
+        function colision() {
+            for (var i = 0; i < enemies.length; i++) {
+                if (cr(player.top, enemies[i].top, 18) && cr(player.left, enemies[i].left, 18)) {
+                    score = score - 500;
+                    enemies[i].top = 30;
+                    enemies[i].left = aleatorio(70, 970);
+                }
+            }
+        }
+
+        function tunazo() {
+            for (var i = 0; i < enemies.length; i++) {
+                for (var j = 0; j < misiles.length; j++) {
+                    if (cr(misiles[j].top, enemies[i].top, 13) && cr(misiles[j].left, enemies[i].left, 13)) {
+                        score = score + 10;
+                        enemies[i].top = 30;
+                        enemies[i].left = aleatorio(70, 970);
+                    }
+                }
+            }
+        }
+
+        function gameLoop() {
+            moveEnemies();
+            moveMisiles();
+            colision();
+            tunazo();
+            drawMisiles();
+            drawEnemies();
+            drawScore();
+            setTimeout(gameLoop, 100);
+        }
+        gameLoop();
+    </script>
+
+</body>
+
+</html>

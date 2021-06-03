@@ -1,0 +1,48 @@
+Las predije todas correctamente.
+
+Respuesta 1:
+35
+
+Respuesta 2:
+0
+
+Respuesta 3:
+6
+
+Respuesta 4:
+3,9
+
+Respuesta 5:
+40
+
+Respuesta 6:
+4
+
+Respuesta 7:
+10,3,30
+
+Respuesta 8:
+3,4
+
+Respuesta 9:
+2,5,8,11
+
+Respuesta 10:
+0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0
+
+Respuesta 11:
+Nada
+
+Respuesta 12:
+Nada
+
+Respuesta 13:
+10
+
+Respuesta 14:
+15,10
+
+Respuesta 15:
+15,15
+
+

@@ -1,0 +1,51 @@
+function resetNegativos(x){
+   for (var i=0; i<x.length; i++){
+       if (x[i]<0){
+			x[i] = 0;
+	   }
+   }
+   return x;
+}
+final = resetNegativos([1,2,-3,-5,5]);
+console.log(final);
+
+/***************************************************************/
+
+function moverAdelante(x){
+   for (var i=0; i<x.length; i++){
+        x[i] = x[i+1];		
+	}
+	x[i-1] = 0;
+	return x;
+}
+final = moverAdelante([1,2,4,5]);
+console.log(final);
+
+/**************************************************************/
+
+function returnReverso(x){
+   var aux = 0; 
+   var j = x.length - 1;
+   for (var i=0; i<(x.length/2); i++){
+        aux = x[i];
+		x[i] = x[j];
+		x[j] = aux;
+		j--;
+	}
+	return x;
+}
+final = returnReverso([1,2,4,5]);
+console.log(final);
+
+/**************************************************************/
+
+function repetirValores(x){
+   var z = [];
+   for (var i=0; i<x.length; i++){
+        z.push(x[i]);
+		z.push(x[i]);		
+	}
+	return z;
+}
+final = repetirValores([1,2,4,5]);
+console.log(final);

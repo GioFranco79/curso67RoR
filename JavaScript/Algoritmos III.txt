@@ -1,0 +1,72 @@
+Predecir outputs
+
+Respuesta 1:
+5
+
+Respuesta 2:
+[2,2,5],[2,2,5],[6,8,5],[6,8,5]
+
+Respuesta 3:
+[2,2,5]
+
+Respuesta 4:
+true
+
+Respuesta 5:
+Deberia tirar [Coding,Coding,Coding,Coding] pero le falta el ; al final y deberia lanzar error.
+
+Respuesta 6: 
+Deberia tirar [5,Coding,Dojo,4] pero tiene el mismo error que el anterior.
+
+Respuesta 7:
+10
+
+Respuesta 8:
+Nada porque nunca se llama a la función.
+
+
+Complete el código
+
+function printAverage(x){
+   var res = 0;
+   sum = 0;
+   for(var i=0; i<x.length; i++){
+       sum = sum + x[i];
+   }
+   res = sum / x.length;
+   return res;
+}
+y = printAverage([1,2,3]);
+console.log(y); // should log 2
+  
+y = printAverage([2,5,8]);
+console.log(y); // should log 5
+
+/******************************************************************/
+
+function returnOddArray(){
+   var x = [];
+   for (var i=1; i<=255; i+=2){
+      x.push(i);
+    }
+}   
+y = returnOddArray();
+console.log(y);
+
+/******************************************************************/
+
+function squareValue(x){
+   var aux = 0; 
+   for (var i=0; i<x.length; i++){
+        aux = x[i] * x[i];
+		x[i] = aux;
+   }
+   return x;
+}
+y = squareValue([1,2,3]);
+console.log(y); // should log [1,4,9]
+  
+y = squareValue([2,5,8]);
+console.log(y); // should log [4,25,64]
+
+

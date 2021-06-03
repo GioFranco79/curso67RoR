@@ -1,0 +1,67 @@
+function mayor(x,y){
+   var aux = 0; 
+   for (var i=0; i<x.length; i++){
+        if (x[i] > y){
+		   aux++;
+		   console.log(x[i]);
+		}			
+   }   
+   console.log(aux);
+}
+mayor([1,2,3,4], 2);
+
+/**********************************************************/
+
+function maxymin(x){
+   var max = 0;
+   var min = 0;
+   var sum = 0;
+   max = x[0];
+   min = x[0];
+   for (var i=0; i<x.length; i++){
+        if (x[i] > max){
+		   max = x[i];
+		}		
+		if (x[i] < min){
+		   min = x[i];
+        }
+		sum = x[i] + sum;
+   }
+    sum = sum / x.length;   
+   console.log(min);
+   console.log(max);
+   console.log(sum);
+}
+maxymin([5,7,3,4]);
+
+/*********************************************************/
+
+function reemplazarNegativos(x){
+   var c = x;
+   for (var i=0; i<c.length; i++){
+       if (c[i]<0){
+			c[i] = "Dojo";
+	   }
+   }
+   return c;
+}
+final = reemplazarNegativos([1,2,-3,-5,5]);
+console.log(final);
+
+/********************************************************/
+
+function removerRango(x,i,j){
+    var res = [];
+	for (var z=0; z< x.length; z++){
+	     if (z<i || z>j){
+		    res.push(x[z]);
+		 }
+	}
+	console.log(res);
+}
+removerRango([20,30,40,50,60,70],2,4);
+
+
+
+
+

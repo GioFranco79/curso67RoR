@@ -1,0 +1,84 @@
+Actividad
+
+Resultado 1:
+2,3, indefinido
+
+Resultado 2:
+6,10
+
+Resultado 3:
+3,7
+
+Resultado 4:
+15,15,10,15
+
+Resultado 5:
+0,2,4,6,8,10,12,14
+
+Resultado 6:
+0,0,0,1,0,2
+
+Resultado 7:
+0,0,0,0,1,2,0,2,4,indefinido
+
+Resultado 8:
+0,0,0,0,0,0,1,2,3,4,0,2,4,6,8,15
+
+
+Print 1 to x
+
+function printUpTo(x){
+   if (x < 0){
+       return false;
+   }
+   for (var i=0; i<=x; i++){
+      console.log(i);
+   }
+   return true;
+}
+printUpTo(1000);
+y = printUpTo(-10);
+console.log(y);
+
+
+PrintSum
+
+function printSum(x){
+  var sum = 0;
+  for (var i=0; i<=x; i++){
+       sum = sum + i;
+	   console.log(sum);  
+  }
+  return sum;
+}
+y = printSum(255);
+console.log(y);
+
+
+PrintSumArray
+
+function printSumArray(x){
+  var sum = 0; 
+  for (var i=0; i<x.length; i++){
+      sum = sum + x[i]; 
+  }
+  return sum;
+}
+console.log(printSumArray([1,2,3]));
+
+
+LargestElement
+
+function largestElement(x){
+  var max = 0; 
+  max = x[0];
+  for (var i=1; i<x.length; i++){
+      if ( max < x[i]){
+	     max = x[i];
+	  }
+  }
+  return max;
+}
+console.log(largestElement([1,30,5,7]));
+
+

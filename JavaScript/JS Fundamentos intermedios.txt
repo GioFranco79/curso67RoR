@@ -1,0 +1,106 @@
+1)************************************************************
+
+function sigma(x){
+   var sum = 0;
+   for (var i=1; i<=x; i++){
+        sum = sum + i;
+   }
+   return sum;
+}
+z = sigma(5);
+console.log(z);
+
+2)************************************************************
+
+function factorial(x){
+   var sum = 1;
+   for (var i=1; i<=x; i++){
+        sum = sum * i;
+   }
+   return sum;
+}
+z = factorial(5);
+console.log(z);
+
+3)************************************************************
+
+function fibonacci(x){
+   var ante1 = 0;
+   var ante2 = 1;
+   var aux = 0;
+   if (x==0){
+       return 0;
+   }
+   if (x==1){
+       return 1;
+   }
+   for (var i=2; i<=x; i++){
+        aux = ante1 + ante2;
+		ante1 = ante2;
+		ante2 = aux; 
+   }
+   return aux;
+}
+z = fibonacci(6);
+console.log(z);
+
+4)************************************************************
+
+function penultimo(x){
+    if (x.length < 2){
+	   return null; 
+	}
+	return x[x.length-2];
+}
+z = penultimo([1,2,3,4,"perro","gato"]);
+console.log(z);
+
+5)************************************************************
+
+function ultimoY(x,y){
+    if (x.length <= y){
+	   return null; 
+	}
+	return x[y];
+}
+z = ultimoY([1,2,3,4,"perro","gato"],4);
+console.log(z);
+
+6)************************************************************
+
+function segundon(x){
+   var aux = 0;
+   var max = 0;
+   if (x.length < 2){
+       return null;
+   }
+   for (var i=0; i<x.length; i++){
+       max = i; 
+       for (var j=i+1; j<x.length; j++){
+           if (x[j]>x[max]){
+		       max = j;
+	       }    
+       }  
+       aux = x[max];
+       x[max] = x[i];
+       x[i] = aux;
+   } 
+   return x[1]; 
+}
+z = segundon([10,2,3,4,5]);
+console.log(z);
+
+7)************************************************************
+
+function dobleA(x){
+   var doble = [];
+   for (var i=0; i<x.length; i++){
+       doble.push(x[i]);
+	   doble.push(x[i]);
+   }
+   return doble;
+}
+z = dobleA([4,"Ulysses",42,false]);
+console.log(z);
+
+

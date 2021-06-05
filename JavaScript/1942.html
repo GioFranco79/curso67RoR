@@ -32,8 +32,8 @@
         
         .boss {
             background: url('boss.png');
-            width: 70px;
-            height: 70px;
+            width: 45px;
+            height: 45px;
             position: absolute;
         }
         
@@ -45,9 +45,17 @@
             position: absolute;
         }
         
+        .explota {
+            background: url('1942.gif');
+            background-position: -85px -42px;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+        }
+        
         #score {
             position: absolute;
-            border: 10px solid red;
+            border: 7px solid red;
             top: 20px;
             left: 800px;
             background-color: white;
@@ -55,11 +63,18 @@
             font-size: 30px;
             font-family: Arial;
         }
+        
+        #audio {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div id='container'>
+        <audio id="audio" controls>
+            <source type="audio/mp3" src="explota.mp3">
+        </audio>
         <div id='hero'>
         </div>
         <div id='jefe'>
@@ -67,6 +82,8 @@
         <div id='enemies'>
         </div>
         <div id='bullets'>
+        </div>
+        <div id="explosion">
         </div>
     </div>
 
@@ -82,42 +99,59 @@
         var enemies = [{
             left: 350,
             top: 200,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }, {
             left: 450,
             top: 110,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }, {
             left: 150,
             top: 100,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }, {
             left: 200,
             top: 150,
-            boss: 1
+            boss: 1,
+            points: 30,
+            radio: 30
         }, {
             left: 420,
             top: 220,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }, {
             left: 580,
             top: 190,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }, {
             left: 680,
             top: 250,
-            boss: 0
+            boss: 0,
+            points: 10,
+            radio: 18
         }];
 
         var misiles = [];
         var score = 0;
+        var level = 1;
 
         function aleatorio(a, b) {
             return Math.round(Math.random() * (b - a) + parseInt(a));
         }
 
         function cr(p1, p2, r) {
-            if ((p2 + r) >= p1 && (p2 - r) <= p1) {
+            var valor = 0;
+            valor = Math.abs(p2 - p1);
+            if (valor <= r) {
                 return true;
             }
             return false;
@@ -125,7 +159,7 @@
 
         function drawScore() {
             content = "";
-            content = "<div>" + score + "</div>";
+            content = "<div>[" + score + "] Level " + level + "</div>";
             document.getElementById("score").innerHTML = content;
         }
 
@@ -146,7 +180,12 @@
             content = "<div class='hero' style='left: " + player.left + "px; top: " + player.top + "px'></div>";
             document.getElementById("hero").innerHTML = content;
         }
-        drawPlayer();
+
+        function drawExplota(l, t) {
+            content = "";
+            content = "<div class='explota' style='left: " + l + "px; top: " + t + "px'></div>";
+            document.getElementById("explosion").innerHTML = content;
+        }
 
         function drawMisiles() {
             content = "";
@@ -196,9 +235,12 @@
         }
 
         function colision() {
+            var audio = document.getElementById("audio");
             for (var i = 0; i < enemies.length; i++) {
-                if (cr(player.top, enemies[i].top, 18) && cr(player.left, enemies[i].left, 18)) {
+                if (cr(player.top, enemies[i].top, enemies[i].radio) && cr(player.left, enemies[i].left, enemies[i].radio)) {
                     score = score - 500;
+                    audio.play();
+                    drawExplota(enemies[i].left, enemies[i].top);
                     enemies[i].top = 30;
                     enemies[i].left = aleatorio(70, 970);
                 }
@@ -206,10 +248,20 @@
         }
 
         function tunazo() {
+            var t1 = 0;
+            var t2 = 0;
+            var r = 0;
+            var audio = document.getElementById("audio");
             for (var i = 0; i < enemies.length; i++) {
                 for (var j = 0; j < misiles.length; j++) {
-                    if (cr(misiles[j].top, enemies[i].top, 13) && cr(misiles[j].left, enemies[i].left, 13)) {
-                        score = score + 10;
+                    t1 = misiles[j].top;
+                    t2 = enemies[i].top;
+                    r = enemies[i].radio;
+                    if (cr(t1, t2, r) && cr(misiles[j].left, enemies[i].left, r)) {
+                        score = score + enemies[i].points;
+                        audio.play();
+                        drawExplota(enemies[i].left, enemies[i].top);
+                        misiles.splice(j, 1);
                         enemies[i].top = 30;
                         enemies[i].left = aleatorio(70, 970);
                     }
@@ -217,7 +269,9 @@
             }
         }
 
+
         function gameLoop() {
+            var tiempo = 100;
             moveEnemies();
             moveMisiles();
             colision();
@@ -225,7 +279,14 @@
             drawMisiles();
             drawEnemies();
             drawScore();
-            setTimeout(gameLoop, 100);
+            if (score > (50 * level)) {
+                tiempo = tiempo - 5;
+                level++;
+                if (tiempo < 10) {
+                    tiempo = 10;
+                }
+            }
+            setTimeout(gameLoop, tiempo);
         }
         gameLoop();
     </script>

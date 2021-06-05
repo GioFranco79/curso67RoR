@@ -57,7 +57,7 @@
             position: absolute;
             border: 7px solid red;
             top: 20px;
-            left: 800px;
+            left: 760px;
             background-color: white;
             padding: 10px;
             font-size: 30px;
@@ -73,7 +73,7 @@
 <body>
     <div id='container'>
         <audio id="audio" controls>
-            <source type="audio/mp3" src="explota.mp3">
+            <source type="audio/mp3" src="Excero.mp3">
         </audio>
         <div id='hero'>
         </div>
@@ -159,7 +159,7 @@
 
         function drawScore() {
             content = "";
-            content = "<div>[" + score + "] Level " + level + "</div>";
+            content = "<div>[" + score + "] Lvl " + level + "</div>";
             document.getElementById("score").innerHTML = content;
         }
 
@@ -279,7 +279,7 @@
             drawMisiles();
             drawEnemies();
             drawScore();
-            if (score > (50 * level)) {
+            if (score > (100 * level)) {
                 tiempo = tiempo - 5;
                 level++;
                 if (tiempo < 10) {
@@ -288,6 +288,7 @@
             }
             setTimeout(gameLoop, tiempo);
         }
+        drawPlayer();
         gameLoop();
     </script>
 

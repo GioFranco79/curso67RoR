@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#botonClass1').click(function() {
+                $('#texto1').css('height', '+=20');
+            });
+            $('#botonClass2').click(function() {
+                var valor = parseInt($('#texto1').css('height'), 10);
+                if (valor <= 180) {
+                    alert("No se puede achicar mas.");
+                } else {
+                    $('#texto1').css('height', '-=20');
+                }
+            });
+            $('#botonHide').click(function() {
+                $("#texto2").hide();
+            });
+            $('#botonShow').click(function() {
+                $("#texto2").show();
+            });
+            $('#botonAgreFin').click(function() {
+                $("#letras").append("<strong> Final </strong>");
+            });
+            $('#botonAgrePrin').click(function() {
+                $("#letras").prepend("<strong> Principio </strong>");
+            });
+            $('#botonToggle').click(function() {
+                $("#texto4").toggle();
+            });
+            $('#botonRojo').click(function() {
+                $("#texto5").addClass("bg-danger");
+            });
+            $('#botonGris').click(function() {
+                $("#texto5").removeClass("bg-danger");
+            });
+        });
+    </script>
+
+    <title>JQuery</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonClass1" type="button" value="Agregar">
+                <input id="botonClass2" type="button" value="Quitar">
+            </div>
+            <div id="texto1" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>CSS!!!</h1>
+                <p>Cuando le das al botón sumar y aumenta el tamaño del div, y si le das al boton quitar lo achica.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonHide" type="button" value="Oculta">
+                <input id="botonShow" type="button" value="Muestra">
+            </div>
+            <div id="texto2" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Texto Ninja!!!</h1>
+                <p>Oculta y muestra cuando le das a los botones correspondiente.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonAgreFin" type="button" value="Final">
+                <input id="botonAgrePrin" type="button" value="Principio">
+            </div>
+            <div id="texto3" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Texto Creciente!!!</h1>
+                <p id="letras">Este texto crecera clickeando los botones.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonToggle" type="button" value="Toggle">
+            </div>
+            <div id="texto4" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Texto Florero!!!</h1>
+                <p id="letras">Este texto se cree el hoyo del queque.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonRojo" type="button" value="Rojo">
+                <input id="botonGris" type="button" value="Gris">
+            </div>
+            <div id="texto5" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Caja Vergonzosa!!!</h1>
+                <p id="letras">Esta caja se pone roja cuando clickeas el boton.</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+
+</html>

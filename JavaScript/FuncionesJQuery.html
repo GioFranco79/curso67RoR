@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             $('#botonClass1').click(function() {
                 $('#texto1').css('height', '+=20');
             });
             $('#botonClass2').click(function() {
+                /*var valor = parseInt($('#texto1').css('height'), 10);*/
                 var valor = parseInt($('#texto1').css('height'), 10);
                 if (valor <= 180) {
                     alert("No se puede achicar mas.");
@@ -35,7 +35,7 @@
                 $("#letras").prepend("<strong> Principio </strong>");
             });
             $('#botonToggle').click(function() {
-                $("#texto4").toggle();
+                $("#texto4").slideToggle("slow");
             });
             $('#botonRojo').click(function() {
                 $("#texto5").addClass("bg-danger");
@@ -43,6 +43,31 @@
             $('#botonGris').click(function() {
                 $("#texto5").removeClass("bg-danger");
             });
+            $('#botonIn').click(function() {
+                $("#texto6").fadeIn();
+            });
+            $('#botonOut').click(function() {
+                $("#texto6").fadeOut();
+            });
+            $('#botonBe').click(function() {
+                $("#aca").before("<h1>Titulo Nuevo!!!</h1>");
+            });
+            $('#botonAf').click(function() {
+                $("#aca").after("<h3>Titulo chico!!!</h3>");
+            });
+            /*$("#botonVal").click(function() {
+                var texto = $("#aca").val();
+                console.log(texto);
+                $("#acato").text("function val() y text() " + texto);
+            });*/
+
+            $("input")
+                .keyup(function() {
+                    var value = $(this).val();
+                    $("#aca").text(value);
+                })
+                .keyup();
+
         });
     </script>
 
@@ -90,7 +115,7 @@
             </div>
             <div id="texto4" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
                 <h1>Texto Florero!!!</h1>
-                <p id="letras">Este texto se cree el hoyo del queque.</p>
+                <p>Este texto se cree el hoyo del queque.</p>
             </div>
         </div>
         <hr>
@@ -101,13 +126,41 @@
             </div>
             <div id="texto5" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
                 <h1>Caja Vergonzosa!!!</h1>
-                <p id="letras">Esta caja se pone roja cuando clickeas el boton.</p>
+                <p>Esta caja se pone roja cuando clickeas el boton.</p>
             </div>
         </div>
         <hr>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonIn" type="button" value="Fade In">
+                <input id="botonOut" type="button" value="Fade Out">
+            </div>
+            <div id="texto6" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Blurry Box!!!</h1>
+                <p>Esta caja es como la niebla.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonBe" type="button" value="Before">
+                <input id="botonAf" type="button" value="After">
+            </div>
+            <div id="texto7" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <p id="aca">Esta caja solo tiene título si clikeas.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-warning p-5">
+                <input id="botonVal" type="button" value="Nada">
+            </div>
+            <div id="texto8" class="col-9 bg-secondary text-center text-light" style="height: 200px;">
+                <h1>Título Sensacionalista!!!</h1>
+                <input type="text" name="palabrotas" id="palabrotas"><br>
+            </div>
+        </div>
+        <hr>
 </body>
 
 </html>

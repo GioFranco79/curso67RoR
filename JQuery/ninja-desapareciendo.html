@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Ninja Desapareciendo</title>
+    <style type="text/css">
+        #ninja-1 {
+            width: 250px;
+            height: auto;
+            margin: 2px solid black;
+        }
+        
+        #ninja-2 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-3 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-4 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-5 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-6 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-7 {
+            width: 250px;
+            height: auto;
+        }
+        
+        #ninja-8 {
+            width: 250px;
+            height: auto;
+        }
+        
+        div.m1 {
+            margin: 2px solid black !important;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            var n1 = 1;
+            var n2 = 1;
+            var n3 = 1;
+            var n4 = 1;
+            var n5 = 1;
+            var n6 = 1;
+            var n7 = 1;
+            var n8 = 1;
+
+            $('#ninja-1').click(function() {
+                if (n1 == 1) {
+                    n1 = 0;
+                } else {
+                    n1 = 1;
+                }
+                $("#ninja-1").slideToggle();
+            });
+            $('#ninja-2').click(function() {
+                if (n2 == 1) {
+                    n2 = 0;
+                } else {
+                    n2 = 1;
+                }
+                $("#ninja-2").slideToggle();
+            });
+            $('#ninja-3').click(function() {
+                if (n3 == 1) {
+                    n3 = 0;
+                } else {
+                    n3 = 1;
+                }
+                $("#ninja-3").slideToggle();
+            });
+            $('#ninja-4').click(function() {
+                if (n4 == 1) {
+                    n4 = 0;
+                } else {
+                    n4 = 1;
+                }
+                $("#ninja-4").slideToggle();
+            });
+            $('#ninja-5').click(function() {
+                if (n5 == 1) {
+                    n5 = 0;
+                } else {
+                    n5 = 1;
+                }
+                $("#ninja-5").slideToggle();
+            });
+            $('#ninja-6').click(function() {
+                if (n6 == 1) {
+                    n6 = 0;
+                } else {
+                    n6 = 1;
+                }
+                $("#ninja-6").slideToggle();
+            });
+            $('#ninja-7').click(function() {
+                if (n7 == 1) {
+                    n7 = 0;
+                } else {
+                    n7 = 1;
+                }
+                $("#ninja-7").slideToggle();
+            });
+            $('#ninja-8').click(function() {
+                if (n8 == 1) {
+                    n8 = 0;
+                } else {
+                    n8 = 1;
+                }
+                $("#ninja-8").slideToggle();
+            });
+            $('#button').click(function() {
+                if (n1 == 0) {
+                    $("#ninja-1").show();
+                    n1 = 1;
+                }
+                if (n2 == 0) {
+                    $("#ninja-2").show();
+                    n2 = 1;
+                }
+                if (n3 == 0) {
+                    $("#ninja-3").show();
+                    n3 = 1;
+                }
+                if (n4 == 0) {
+                    $("#ninja-4").show();
+                    n4 = 1;
+                }
+                if (n5 == 0) {
+                    $("#ninja-5").show();
+                    n5 = 1;
+                }
+                if (n6 == 0) {
+                    $("#ninja-6").show();
+                    n6 = 1;
+                }
+                if (n7 == 0) {
+                    $("#ninja-7").show();
+                    n7 = 1;
+                }
+                if (n8 == 0) {
+                    $("#ninja-8").show();
+                    n8 = 1;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>JQuery assignment 1</h2>
+        <div class="row">
+            <div class="col">
+                <img id="ninja-1" src="imagen/Ninja-1.jpg" alt="Ninja 1">
+            </div>
+            <div class="col">
+                <img id="ninja-2" src="imagen/Ninja-2.jpg" alt="Ninja 2">
+            </div>
+            <div class="col">
+                <img id="ninja-3" src="imagen/Ninja-3.jpg" alt="Ninja 3">
+            </div>
+            <div class="col">
+                <img id="ninja-4" src="imagen/Ninja-4.jpg" alt="Ninja 4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img id="ninja-5" src="imagen/Ninja-4.jpg" alt="Ninja 1">
+            </div>
+            <div class="col">
+                <img id="ninja-6" src="imagen/Ninja-3.jpg" alt="Ninja 2">
+            </div>
+            <div class="col">
+                <img id="ninja-7" src="imagen/Ninja-2.jpg" alt="Ninja 3">
+            </div>
+            <div class="col">
+                <img id="ninja-8" src="imagen/Ninja-1.jpg" alt="Ninja 4">
+            </div>
+        </div>
+        <input id="button" type="button" value="Restaurar">
+    </div>
+</body>
+
+</html>

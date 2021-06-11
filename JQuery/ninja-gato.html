@@ -21,10 +21,10 @@
                 atributo = $(this).attr('data-alt-src');
                 imagen = $(this).attr('src');
                 parte = $(this).attr('alt');
-                llama = "#parte" + parte;
-                muestra = '<img src="' + atributo + '" data-alt-src="' + imagen + '" alt="' + parte + '">';
-                console.log("String : " + muestra);
-                $(llama).html(muestra);
+                llama = "#i" + parte;
+                $(this).attr("src", atributo);
+                $(this).attr("data-alt-src", imagen);
+                $(this).attr("alt", parte);
             });
         });
     </script>
@@ -33,19 +33,19 @@
 <body>
     <div class="container">
         <div id="parte0">
-            <img src="imagen/ninja0.png" data-alt-src='imagen/cat0.png' alt="0">
+            <img id="i0" src="imagen/ninja0.png" data-alt-src='imagen/cat0.png' alt="0">
         </div>
         <div id="parte1">
-            <img src="imagen/ninja1.png" data-alt-src='imagen/cat1.png' alt="1">
+            <img id="i1" src="imagen/ninja1.png" data-alt-src='imagen/cat1.png' alt="1">
         </div>
         <div id="parte2">
-            <img src="imagen/ninja2.png" data-alt-src='imagen/cat2.png' alt="2">
+            <img id="i2" src="imagen/ninja2.png" data-alt-src='imagen/cat2.png' alt="2">
         </div>
         <div id="parte3">
-            <img src="imagen/ninja3.png" data-alt-src='imagen/cat3.png' alt="3">
+            <img id="i3" src="imagen/ninja3.png" data-alt-src='imagen/cat3.png' alt="3">
         </div>
         <div id="parte4">
-            <img src="imagen/ninja4.png" data-alt-src='imagen/cat4.png' alt="4">
+            <img id="i4" src="imagen/ninja4.png" data-alt-src='imagen/cat4.png' alt="4">
         </div>
     </div>
 

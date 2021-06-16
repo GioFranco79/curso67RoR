@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <title>El Clima</title>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                var html_str = "";
+                var ciudad = $('#ciudad').val();
+                var cadena = "http://api.openweathermap.org/data/2.5/weather?q=" + ciudad + "&&APPID=6bf9ba86fe81824d49aed40ca2e78c6c";
+                $.get(cadena, function(res) {
+                    if (res.cod != "404") {
+                        html_str += "<h2>" + res.name + "</h2>";
+                        html_str += '<p> Temperatura : ' + res.main.temp + "F°</p>"
+                        html_str += "<p> Cielos      : " + res.weather[0].main + "</p>";
+                        html_str += "<p> Longitud    : [" + res.coord.lon + "] Latitud  : [" + res.coord.lat + "] </p>";
+                        html_str += "<p> Descripcion : " + res.weather[0].description + " </p>";
+                        $("#datos").html(html_str);
+                    } else {
+                        console.log(res);
+                        html_str += "<h2> Ciudad no encontrada.</h2>";
+                        $("#datos").html(html_str);
+                        return false;
+                    }
+                }, "json");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>Ciudad</p>
+        <input type="text" name="ciudad" id="ciudad">
+        <button>Ver</button>
+        <div id="datos">
+        </div>
+    </div>
+
+</body>
+
+</html>

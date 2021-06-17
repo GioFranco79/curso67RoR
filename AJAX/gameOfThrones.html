@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <title>Juego de tronos</title>
+    <style>
+        img {
+            width: 250px;
+            border: 2px solid black;
+        }
+        
+        #datos {
+            border: 5px solid red;
+            min-height: 200px;
+            width: 550px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('img').click(function() {
+                var html_str = "";
+                var cadena = "https://anapioficeandfire.com/api/houses/";
+                var casa = $(this).attr('id');
+                cadena += casa;
+                $.get(cadena, function(res) {
+                    console.log(res);
+                    if (res) {
+                        html_str += "<h2> Casa : " + res.name + "</h2>";
+                        html_str += '<p> Palabras    : ' + res.words + "</p>"
+                        html_str += "<p> titulos     : ";
+                        for (let i = 0; i < res.titles.length; i++) {
+                            html_str += res.titles[i] + ", ";
+                        }
+                        html_str += "</p>";
+                        html_str += "<p> Region      : " + res.region + "</p>";
+                        $("#datos").html(html_str);
+                    } else {
+                        console.log(res);
+                        html_str += "<h2> Casa no encontrada.</h2>";
+                        $("#datos").html(html_str);
+                        return false;
+                    }
+                }, "json");
+            });
+            $('button').click(function() {
+                var html_str = "";
+                var abuscar = "";
+                var cadena = "https://anapioficeandfire.com/api/houses/";
+                for (let i = 0; i < 441; i++) {
+                    abuscar = cadena + i;
+                    $.get(abuscar, function(res) {
+                        console.log(res);
+                        html_str = "<p> Casa : " + res.name + "  //////   Numero de casa : " + i + "</p>";
+                        $("#busca").append(html_str);
+                    }, "json");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="imagen/stark.jpg" alt="Stark" id="377">
+        <img src="imagen/targaryen.jpg" alt="Targaryen" id="378">
+        <img src="imagen/lannister.jpg" alt="Lannister" id="229">
+        <img src="imagen/baratheon.png" alt="Baratheon" id="15">
+        <div id="datos">
+            <h2>Detalles de la casa.</h2>
+        </div>
+        <button>buscar</button>
+        <div id="busca">
+            <h2>Otras casas :</h2>
+        </div>
+    </div>
+
+</body>
+
+</html>

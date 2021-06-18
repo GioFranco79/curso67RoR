@@ -14,6 +14,7 @@
                 var ciudad = $('#ciudad').val();
                 var cadena = "http://api.openweathermap.org/data/2.5/weather?q=" + ciudad + "&&APPID=6bf9ba86fe81824d49aed40ca2e78c6c";
                 $.get(cadena, function(res) {
+                    console.log(res);
                     if (res.cod != "404") {
                         html_str += "<h2>" + res.name + "</h2>";
                         html_str += '<p> Temperatura : ' + res.main.temp + "F°</p>"

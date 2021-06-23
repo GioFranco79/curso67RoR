@@ -17,7 +17,7 @@
         }
         
         #datos {
-            width: 10%;
+            width: 12%;
             border: 4px solid red;
             float: right;
             min-height: 150px;
@@ -27,24 +27,24 @@
     </style>
     <script>
         $(document).ready(function() {
-            $(document).on('click', 'img', function() {
+            $('img').click(function() {
                 var valor = $(this).attr('id');
                 var cadena = "https://pokeapi.co/api/v2/pokemon/" + valor + "/";
                 $.get(cadena, function(res) {
-                    var html_str = "";
-                    html_str += "<h2>" + res.name + "</h2>"
-                    html_str += '<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + valor + '.png" alt="Pokemon">';
-                    html_str += "<h4>Tipos</h4>";
-                    html_str += "<ul>";
+                    var htm = "";
+                    /*htm = htm + "<h2>" + res.name + "</h2>";*/
+                    htm += "<h2>" + res.name + "</h2>";
+                    htm += '<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + valor + '.png" alt="Pokemon">';
+                    htm += "<h4>Tipos</h4>";
+                    htm += "<ul>";
                     for (var i = 0; i < res.types.length; i++) {
-                        html_str += "<li>" + res.types[i].type.name + "</li>";
+                        htm += "<li>" + res.types[i].type.name + "</li>";
                     }
-                    html_str += "</ul>";
-                    html_str += "<p> Altura : " + res.height + "</p>";
-                    html_str += "<p> Ancho  : " + res.weight + "</p>";
-                    $("#datos").html(html_str);
+                    htm += "</ul>";
+                    htm += "<p> Altura : " + res.height + "</p>";
+                    htm += "<p> Ancho  : " + res.weight + "</p>";
+                    $("#datos").html(htm);
                 }, "json");
-
             });
         })
     </script>
@@ -55,7 +55,7 @@
         <div id="bulbasaur">
         </div>
         <div id="datos">
-            <p> cualkier cosa </p>
+            <p>Pokemon anonimo</p>
         </div>
     </div>
     <script>
